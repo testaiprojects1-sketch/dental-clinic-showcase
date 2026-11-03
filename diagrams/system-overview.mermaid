@@ -1,0 +1,57 @@
+%%{init: {'theme': 'base', 'themeVariables': {
+  'primaryColor': '#0B2D4A',
+  'primaryTextColor': '#fff',
+  'primaryBorderColor': '#00C9A7',
+  'lineColor': '#888',
+  'secondaryColor': '#1A1A2E',
+  'tertiaryColor': '#E85D4D',
+  'background': 'transparent',
+  'mainBkg': 'transparent',
+  'secondBkg': 'transparent',
+  'tertiaryBkg': 'transparent'
+}}}%%
+flowchart LR
+    subgraph Patient[Patient Portal]
+        Portal[Next.js Patient Portal]
+        Appt[Appointment Booking]
+        History[Treatment History]
+    end
+    subgraph Clinic[Clinic Dashboard]
+        Dashboard[Provider Dashboard]
+        Consult[Aura Consultation Panel]
+        Calendar[Schedule Management]
+    end
+    subgraph Backend[Backend (Next.js API + Supabase)]
+        Auth[Auth + RLS]
+        API[REST API Routes]
+        PG[(PostgreSQL + RLS)]
+        Storage[Supabase Storage]
+    end
+    subgraph Viz[Visualization]
+        ThreeJS[Three.js Facial Viz]
+        Photo[Photo Management]
+    end
+    subgraph Governance[Governance]
+        Audit[Audit Logger]
+        Consent[Consent Management]
+        Retention[Data Retention]
+    end
+
+    Portal --> Auth
+    Appt --> API
+    History --> API
+    Dashboard --> Auth
+    Consult --> ThreeJS
+    Calendar --> API
+    API --> PG
+    API --> Storage
+    ThreeJS --> Photo
+    API --> Audit
+    Audit --> Consent
+    Consent --> Retention
+
+    style Patient fill:#0B2D4A,color:#fff
+    style Clinic fill:#1A1A2E,color:#fff
+    style Backend fill:#1A1A2E,color:#fff
+    style Viz fill:#00C9A7,color:#0B2D4A
+    style Governance fill:#E85D4D,color:#fff

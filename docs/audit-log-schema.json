@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dental Clinic Audit Log Entry",
+  "type": "object",
+  "required": ["trace_id", "timestamp", "event_type", "payload"],
+  "properties": {
+    "trace_id": { "type": "string", "format": "uuid" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "event_type": { "enum": ["patient_data_access", "appointment_change", "consent_change", "photo_access", "treatment_update", "provider_action"] },
+    "payload": { "type": "object" }
+  }
+}

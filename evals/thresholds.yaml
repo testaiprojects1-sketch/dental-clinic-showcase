@@ -1,0 +1,19 @@
+# Evaluation Thresholds
+regression:
+  min_pass_rate: 0.95
+  rls_enforcement: 1.0
+  consent_check: 1.0
+
+security:
+  max_critical_findings: 0
+  max_high_findings: 0
+
+compliance:
+  data_retention_automated: true
+  consent_versioning: true
+  audit_completeness: 1.0
+
+gates:
+  block_merge_on_regression_failure: true
+  block_merge_on_security_failure: true
+  block_merge_on_compliance_failure: true

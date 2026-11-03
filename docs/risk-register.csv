@@ -1,0 +1,6 @@
+id,risk,likelihood,impact,mitigation,owner,status
+R-01,Patient photo leakage,Low,Critical,"Client-side encryption + Supabase Storage RLS",Jane,Active
+R-02,Unauthorized patient data access,Low,Critical,"RLS on all tables + audit logging",Jane,Active
+R-03,Consent revocation not honored,Low,High,"Automated consent check on every access",Jane,Planned
+R-04,Data retention non-compliance,Medium,High,"Automated retention policies + audit",Jane,Active
+R-05,3D viz performance on mobile,Medium,Medium,"Progressive enhancement + fallback",Jane,Monitored
